@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - GrowEase Microgreen Growing System</title>
+    <meta name="description" content="Learn about our mission to make indoor gardening accessible, sustainable, and enjoyable for everyone.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'grow-green': '#22c55e',
+                        'grow-green-dark': '#16a34a',
+                        'grow-sage': '#84cc16',
+                        'grow-gray': '#1e293b',
+                        'grow-light': '#f8fafc'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .reveal-up.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .stat-card {
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-grow-green rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">🌱</span>
+                    </div>
+                    <span class="font-bold text-xl text-grow-gray">GrowEase</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-grow-gray hover:text-grow-green transition-colors font-medium">Home</a>
+                    <a href="features.html" class="text-grow-gray hover:text-grow-green transition-colors font-medium">Features</a>
+                    <a href="about.html" class="text-grow-green font-medium">About</a>
+                    <a href="index.html#waitlist" class="bg-grow-green text-white px-6 py-2 rounded-full hover:bg-grow-green-dark transition-colors font-medium">Join Waitlist</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 bg-gradient-to-br from-grow-light to-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="reveal-up">
+                <h1 class="text-4xl md:text-5xl font-bold text-grow-gray mb-6">
+                    Growing a <span class="text-grow-green">Healthier Future</span>
+                </h1>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    At GrowEase, we believe everyone deserves access to fresh, nutritious food. Our mission is to make indoor gardening simple, sustainable, and accessible to all.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="reveal-up">
+                    <h2 class="text-3xl font-bold text-grow-gray mb-6">Our Mission</h2>
+                    <p class="text-gray-600 mb-6">
+                        We started GrowEase with a simple belief: growing your own food shouldn't require a green thumb, a backyard, or hours of maintenance. In a world where fresh produce is increasingly expensive and often traveled thousands of miles, we wanted to bring the farm closer to home.
+                    </p>
+                    <p class="text-gray-600 mb-6">
+                        Our mission is to empower every household to grow fresh, nutritious microgreens year-round, regardless of space constraints or gardening experience. We're making indoor gardening accessible, sustainable, and truly enjoyable.
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-grow-green rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-grow-gray">Sustainable Living</h4>
+                            <p class="text-gray-600">Reducing food miles and packaging waste</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="reveal-up">
+                    <img src="resources/microgreen-varieties.jpg" alt="Microgreen Varieties" class="w-full h-auto rounded-2xl shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Microgreens -->
+    <section class="py-20 bg-grow-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-grow-gray mb-4">Why Microgreens?</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">These tiny powerhouses pack a serious nutritional punch and offer incredible flavor profiles.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center reveal-up">
+                    <div class="w-20 h-20 bg-grow-green rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-grow-gray mb-4">Nutrient Dense</h3>
+                    <p class="text-gray-600">Microgreens contain up to 40 times more nutrients than their mature counterparts, making them a superfood powerhouse.</p>
+                </div>
+                
+                <div class="text-center reveal-up">
+                    <div class="w-20 h-20 bg-grow-green rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-grow-gray mb-4">Fast Growing</h3>
+                    <p class="text-gray-600">Ready to harvest in just 7-12 days, providing a continuous supply of fresh greens year-round.</p>
+                </div>
+                
+                <div class="text-center reveal-up">
+                    <div class="w-20 h-20 bg-grow-green rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-grow-gray mb-4">Incredible Flavor</h3>
+                    <p class="text-gray-600">Concentrated flavors that can elevate any dish, from salads to smoothies to gourmet meals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="reveal-up order-2 lg:order-1">
+                    <img src="resources/indoor-kit.jpg" alt="Sustainable Growing" class="w-full h-auto rounded-2xl shadow-lg">
+                </div>
+                <div class="reveal-up order-1 lg:order-2">
+                    <h2 class="text-3xl font-bold text-grow-gray mb-6">Committed to Sustainability</h2>
+                    <p class="text-gray-600 mb-6">
+                        We believe in creating products that are good for both people and the planet. GrowEase is designed with sustainability at its core, from materials to packaging to energy efficiency.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-grow-green rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-grow-gray">Eco-Friendly Materials</h4>
+                                <p class="text-gray-600">Made from recyclable PP+PVC materials with biodegradable transplant bags.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-grow-green rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-grow-gray">Energy Efficient</h4>
+                                <p class="text-gray-600">Consumes only 10W while providing optimal growing conditions 24/7.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-6 h-6 bg-grow-green rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-grow-gray">Reduced Food Waste</h4>
+                                <p class="text-gray-600">Harvest only what you need, when you need it. No more wilted greens in the fridge.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="py-20 bg-grow-green">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Our Impact Goals</h2>
+                <p class="text-green-100 max-w-2xl mx-auto">We're on a mission to transform how people think about fresh food accessibility.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="stat-card text-center bg-white/10 backdrop-blur-sm rounded-2xl p-6 reveal-up">
+                    <div class="text-3xl font-bold text-white mb-2">10,000+</div>
+                    <div class="text-green-100">Homes Growing</div>
+                </div>
+                <div class="stat-card text-center bg-white/10 backdrop-blur-sm rounded-2xl p-6 reveal-up">
+                    <div class="text-3xl font-bold text-white mb-2">1M+</div>
+                    <div class="text-green-100">Servings Harvested</div>
+                </div>
+                <div class="stat-card text-center bg-white/10 backdrop-blur-sm rounded-2xl p-6 reveal-up">
+                    <div class="text-3xl font-bold text-white mb-2">50%</div>
+                    <div class="text-green-100">Less Water Usage</div>
+                </div>
+                <div class="stat-card text-center bg-white/10 backdrop-blur-sm rounded-2xl p-6 reveal-up">
+                    <div class="text-3xl font-bold text-white mb-2">365</div>
+                    <div class="text-green-100">Days Growing Season</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-grow-gray mb-4">Meet the Team</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Passionate individuals dedicated to making fresh, healthy food accessible to everyone.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center reveal-up">
+                    <div class="w-24 h-24 bg-grow-green rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white text-2xl font-bold">SM</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-grow-gray mb-2">Sarah Mitchell</h3>
+                    <p class="text-grow-green mb-3">Founder & CEO</p>
+                    <p class="text-gray-600 text-sm">Urban farming enthusiast with 10+ years in sustainable agriculture technology.</p>
+                </div>
+                
+                <div class="text-center reveal-up">
+                    <div class="w-24 h-24 bg-grow-green rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white text-2xl font-bold">DC</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-grow-gray mb-2">David Chen</h3>
+                    <p class="text-grow-green mb-3">Head of Product</p>
+                    <p class="text-gray-600 text-sm">Industrial designer passionate about creating beautiful, functional growing solutions.</p>
+                </div>
+                
+                <div class="text-center reveal-up">
+                    <div class="w-24 h-24 bg-grow-green rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white text-2xl font-bold">MR</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-grow-gray mb-2">Maria Rodriguez</h3>
+                    <p class="text-grow-green mb-3">Lead Engineer</p>
+                    <p class="text-gray-600 text-sm">Electronics engineer specializing in smart growing systems and IoT integration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-grow-light">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="reveal-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-grow-gray mb-4">Join Our Growing Community</h2>
+                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">Be part of the movement towards sustainable, accessible fresh food. Join our waitlist and be the first to know when GrowEase launches.</p>
+                <a href="index.html#waitlist" class="inline-block bg-grow-green text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-grow-green-dark transition-all">
+                    Join the Waitlist
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-grow-gray text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-2 mb-4">
+                    <div class="w-8 h-8 bg-grow-green rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">🌱</span>
+                    </div>
+                    <span class="font-bold text-xl">GrowEase</span>
+                </div>
+                <p class="text-gray-400 mb-6">Grow your own fresh microgreens at home — fresh, fast, and mess-free.</p>
+                <div class="flex justify-center space-x-6 mb-6">
+                    <a href="#" class="text-gray-400 hover:text-grow-green transition-colors">Privacy</a>
+                    <a href="#" class="text-gray-400 hover:text-grow-green transition-colors">Contact</a>
+                    <a href="#" class="text-gray-400 hover:text-grow-green transition-colors">Instagram</a>
+                    <a href="#" class="text-gray-400 hover:text-grow-green transition-colors">TikTok</a>
+                </div>
+                <p class="text-gray-500 text-sm">© 2025 GrowEase. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, observerOptions);
+            
+            document.querySelectorAll('.reveal-up').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>

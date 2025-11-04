@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrowEase - Grow Your Own Fresh Microgreens in 7 Days</title>
+    <meta name="description" content="The all-in-one hydroponic garden starter kit for growing fresh microgreens at home - no soil, no mess, no hassle.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Animation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="https://unpkg.com/splitting@1.0.6/dist/splitting.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/splitting@1.0.6/dist/splitting.css">
+    
+    <!-- Custom Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'grow-green': '#22c55e',
+                        'grow-green-dark': '#16a34a',
+                        'grow-sage': '#84cc16',
+                        'grow-gray': '#1e293b',
+                        'grow-light': '#f8fafc'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        
+        /* Custom Animations */
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(34, 197, 94, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(34, 197, 94, 0.6); }
+        }
+        
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .reveal-up.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Particle Animation */
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #84cc16;
+            border-radius: 50%;
+            opacity: 0.7;
+        }
+        
+        /* Hero Background */
+        .hero-bg {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Form Styles */
+        .form-input {
+            transition: all 0.3s ease;
+        }
+        
+        .form-input:focus {
+            border-color: #22c55e;
+            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-grow-green rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">🌱</span>
+                    </div>
+                    <span class="font-bold text-xl text-grow-gray">GrowEase</span>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-grow-gray hover:text-grow-green transition-colors font-medium">Home</a>
+                    <a href="#features" class="text-grow-gray hover:text-grow-green transition-colors font-medium">Features</a>
+                    <a href="#how-it-works" class="text-grow-gray hover:text-grow-green transition-colors font-medium">How It Works</a>
+                    <a href="#waitlist" class="bg-grow-green text-white px-6 py-2 rounded-full hover:bg-grow-green-dark transition-colors font-medium">Join Waitlist</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu md:hidden fixed top-16 right-0 w-64 h-screen bg-white shadow-lg z-40">
+            <div class="p-6 space-y-4">
+                <a href="#home" class="block text-grow-gray hover:text-grow-green transition-colors font-medium">Home</a>
+                <a href="#features" class="block text-grow-gray hover:text-grow-green transition-colors font-medium">Features</a>
+                <a href="#how-it-works" class="block text-grow-gray hover:text-grow-green transition-colors font-medium">How It Works</a>
+                <a href="#waitlist" class="block bg-grow-green text-white px-6 py-2 rounded-full hover:bg-grow-green-dark transition-colors font-medium text-center">Join Waitlist</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center pt-16">
+        <!-- Particles Container -->
+        <div id="particles-container" class="absolute inset-0"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+            <!-- Left Content -->
+            <div class="text-center lg:text-left">
+                <div class="mb-4">
+                    <span class="inline-block bg-grow-green/10 text-grow-green px-4 py-2 rounded-full text-sm font-medium">
+                        🌱 Coming Spring 2026
+                    </span>
+                </div>
+                
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-grow-gray mb-6 leading-tight">
+                    <span id="typed-headline"></span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-gray-600 mb-8 max-w-2xl">
+                    The all-in-one hydroponic garden starter kit for anyone who wants healthy greens at home — no soil, no mess, no hassle.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <button onclick="scrollToWaitlist()" class="bg-grow-green text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-grow-green-dark transition-all pulse-glow">
+                        Join the Waitlist
+                    </button>
+                    <button onclick="scrollToFeatures()" class="border-2 border-grow-green text-grow-green px-8 py-4 rounded-full text-lg font-semibold hover:bg-grow-green hover:text-white transition-all">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Right Content - Hero Image -->
+            <div class="relative">
+                <div class="float-animation">
+                    <img src="resources/hero-image.png" alt="GrowEase Microgreen Growing System" class="w-full h-auto rounded-2xl shadow-2xl">
+                </div>
+                <div class="absolute -top-4 -right-4 w-24 h-24 bg-grow-green rounded-full flex items-center justify-center text-white font-bold shadow-lg">
+                    7 Days
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Features -->
+    <section id="features" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-grow-gray mb-4">A Smarter Way to Grow</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Experience the future of indoor gardening with our innovative hydroponic system.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-grow-light rounded-2xl p-8 text-center reveal-up feature-card">
+                    <div class="w-16 h-16 bg-grow-green rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-grow-gray mb-4">Hydroponic System</h3>
+                    <p class="text-gray-600">Self-watering, efficient root hydration with multi-layer water tray design that minimizes decay and maximizes growth.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-grow-light rounded-2xl p-8 text-center reveal-up feature-card">
+                    <div class="w-16 h-16 bg-grow-green rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-grow-gray mb-4">Smart LED Lighting</h3>
+                    <p class="text-gray-600">Full spectrum LED lights mimic natural sunlight with smart timer controls and dimmable intensity for optimal growth.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-grow-light rounded-2xl p-8 text-center reveal-up feature-card">
+                    <div class="w-16 h-16 bg-grow-green rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-grow-gray mb-4">Effortless Cleaning</h3>
+                    <p class="text-gray-600">One-second root cleaning system makes maintenance a breeze. Ready for reuse in seconds with biodegradable transplant bags.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-20 bg-grow-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-grow-gray mb-4">Growing Made Simple</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Three easy steps to fresh, healthy microgreens in just 7-12 days.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Step 1 -->
+                <div class="text-center reveal-up">
+                    <div class="w-20 h-20 bg-grow-green rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">1</div>
+                    <h3 class="text-xl font-bold text-grow-gray mb-4">Add Seeds & Water</h3>
+                    <p class="text-gray-600">Simply add your favorite microgreen seeds to the trays and fill the water reservoir. No soil needed!</p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="text-center reveal-up">
+                    <div class="w-20 h-20 bg-grow-green rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">2</div>
+                    <h3 class="text-xl font-bold text-grow-gray mb-4">Let LED Do the Work</h3>
+                    <p class="text-gray-600">Set your preferred light cycle and watch as the full spectrum LED lights accelerate growth naturally.</p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="text-center reveal-up">
+                    <div class="w-20 h-20 bg-grow-green rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">3</div>
+                    <h3 class="text-xl font-bold text-grow-gray mb-4">Harvest & Enjoy</h3>
+                    <p class="text-gray-600">In just 7-12 days, harvest fresh, nutritious microgreens packed with flavor and nutrients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Signup Section -->
+    <section id="waitlist" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="reveal-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-grow-gray mb-4">Be the First to Know!</h2>
+                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">Sign up for early access, special launch pricing, and updates about GrowEase.</p>
+                
+                <!-- Signup Form -->
+                <form id="waitlist-form" class="max-w-md mx-auto">
+                    <div class="space-y-4">
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            placeholder="Your Name" 
+                            required
+                            class="form-input w-full px-4 py-3 border border-gray-300 rounded-full focus:outline-none"
+                        >
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="Your Email" 
+                            required
+                            class="form-input w-full px-4 py-3 border border-gray-300 rounded-full focus:outline-none"
+                        >
+                        <button 
+                            type="submit" 
+                            class="w-full bg-grow-green text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-grow-green-dark transition-all pulse-glow"
+                        >
+                            Join Waitlist
+                        </button>
+                    </div>
+                </form>
+                
+                <!-- Success Message -->
+                <div id="success-message" class="hidden mt-6 p-4 bg-grow-green/10 border border-grow-green/20 rounded-lg">
+                    <p class="text-grow-green font-semibold">🌿 You're on the list! We'll notify you when GrowEase launches.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Specs -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 reveal-up">
+                <h2 class="text-3xl font-bold text-grow-gray mb-4">Technical Specifications</h2>
+                <p class="text-gray-600">Everything you need to know about GrowEase</p>
+            </div>
+            
+            <div class="bg-white rounded-2xl p-8 shadow-lg reveal-up">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-lg font-semibold text-grow-gray mb-4">Power & Performance</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li><span class="font-medium">Power:</span> 10W</li>
+                            <li><span class="font-medium">Voltage:</span> DC 12V (AC100-240V adapter)</li>
+                            <li><span class="font-medium">Color Temperature:</span> 6400K</li>
+                            <li><span class="font-medium">PPFD:</span> 218 µmol/s/m²</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-grow-gray mb-4">Design & Safety</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li><span class="font-medium">Dimensions:</span> 390×195×218 mm</li>
+                            <li><span class="font-medium">Materials:</span> PP+PVC</li>
+                            <li><span class="font-medium">Colors:</span> Black / White / Green</li>
+                            <li><span class="font-medium">Certifications:</span> CE, ROHS, LFGB</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-grow-gray text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-2 mb-4">
+                    <div class="w-8 h-8 bg-grow-green rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">🌱</span>
+                    </div>
+                    <span class="font-bold text-xl">GrowEase</span>
+                </div>
+                <p class="text-gray-400 mb-6">Grow your own fresh microgreens at home — fresh, fast, and mess-free.</p>
+                <div class="flex justify-center space-x-6 mb-6">
+                    <a href="#" class="text-gray-400 hover:text-grow-green transition-colors">Privacy</a>
+                    <a href="#" class="text-gray-400 hover:text-grow-green transition-colors">Contact</a>
+                    <a href="#" class="text-gray-400 hover:text-grow-green transition-colors">Instagram</a>
+                    <a href="#" class="text-gray-400 hover:text-grow-green transition-colors">TikTok</a>
+                </div>
+                <p class="text-gray-500 text-sm">© 2025 GrowEase. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating CTA Button -->
+    <button id="floating-cta" onclick="scrollToWaitlist()" class="fixed bottom-6 right-6 bg-grow-green text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:bg-grow-green-dark transition-all pulse-glow z-40">
+        Join Waitlist
+    </button>
+
+    <!-- Main JavaScript -->
+    <script src="main.js"></script>
+</body>
+</html>
